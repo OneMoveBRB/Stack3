@@ -9,6 +9,8 @@ StackErr_t StackPush(Stack_t* stack, type value) {
     STACK_VERIFY(stack, errno);
 #endif
 
+// Сделаю макрос TWO_CANARIES 2 ....
+// Тогда if (stack->size + 1 == stack->capacity - TWO_CANARIES) StackUpdate(stack); без #if
 #if STACK_MODE == STACK_DEBUG
     if (stack->size + 1 == stack->capacity - 2) StackUpdate(stack);
 #else
