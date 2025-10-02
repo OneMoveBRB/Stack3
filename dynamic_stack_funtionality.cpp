@@ -12,6 +12,8 @@ StackErr_t StackInit(Stack_t* stack, size_t capacity) {
 
     stack->size = 0;
 
+// Сделаю макрос TWO_CANARIES 2 ....
+// Тогда stack->capacity = capacity + 2; без #if
 #if STACK_MODE == STACK_DEBUG
     stack->capacity = capacity + 2;
 #else
