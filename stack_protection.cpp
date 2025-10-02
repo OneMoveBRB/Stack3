@@ -34,7 +34,7 @@ StackErr_t StackVerify(Stack_t* stack, VarInfo curInfo, errno_t error) {
     return OK;
 }
 
-// Записывает состояние программы в отладочный файл в данный момент
+// Сделаю запись в файл и переменное число аргументов для более подробного вывода ошибок
 StackErr_t StackDump(Stack_t* stack, VarInfo curInfo, errno_t error) {
     char error_buf[MSG_LEN] = "";
     char* error_message = NULL;
