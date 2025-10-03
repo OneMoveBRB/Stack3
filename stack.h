@@ -9,6 +9,10 @@
 #define errno_t error_t
 #endif
 
+#ifndef TWO_CANARIES
+#define TWO_CANARIES 0
+#endif
+
 #define INIT VarInfo{__FILE__, __func__, __LINE__}
 #define STACK_VERIFY(stack_ptr, _errno) \
     StackVerify(stack_ptr, INIT, _errno)
