@@ -15,6 +15,9 @@ void* MoveArrPtr(void* ptr, size_t offset) {
 
 StackErr_t StackPrint(Stack_t* stack) {
 #if STACK_MODE == STACK_DEBUG
+    StackErr_t err_flag = OK;
+    if ((err_flag = STACK_VERIFY(stack, errno)) != OK) return err_flag;
+    
     printf("%u\n", *(const unsigned int*)stack->arr);
 #endif
     for (size_t i = 0; i < stack->size; i++) {
