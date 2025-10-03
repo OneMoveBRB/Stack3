@@ -21,7 +21,8 @@ StackErr_t StackVerify(Stack_t* stack, VarInfo curInfo, errno_t error) {
         error = 0;
     }
 
-    if (stack == NULL || stack->arr == NULL) {
+    if ((stack == NULL) || (stack->arr == NULL) || 
+        (stack->LeftBorder == NULL) || (stack->RightBorder == NULL)) {
         StackDump(stack, curInfo, EFAULT);
         return NULL_PTR;
     }
@@ -34,7 +35,6 @@ StackErr_t StackVerify(Stack_t* stack, VarInfo curInfo, errno_t error) {
     return OK;
 }
 
-// Сделаю запись в файл и переменное число аргументов для более подробного вывода ошибок
 StackErr_t StackDump(Stack_t* stack, VarInfo curInfo, errno_t error) {
     char error_buf[MSG_LEN] = "";
     char* error_message = NULL;
