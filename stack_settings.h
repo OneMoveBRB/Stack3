@@ -1,11 +1,13 @@
 #define STACK_DEBUG     1
-#define STACK_REALIZE   0
+#define STACK_REALIZE   -1
 
 #ifndef STACK_MODE
 #define STACK_MODE STACK_DEBUG
 #endif
 
 #if STACK_MODE == STACK_DEBUG
+#define TWO_CANARIES 2
+
 struct VarInfo{
     const char* file;
     const char* func;
